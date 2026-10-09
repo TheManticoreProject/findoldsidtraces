@@ -37,8 +37,8 @@ jobs:
           GOOS: ${{ matrix.os }}
           GOARCH: ${{ matrix.arch }}
         run: |
-          mkdir -p bin
-          OUTPUT_PATH="../build/${{ matrix.binaryname }}-${{ matrix.os }}-${{ matrix.arch }}"
+          mkdir -p ./build
+          OUTPUT_PATH="./build/${{ matrix.binaryname }}-${{ matrix.os }}-${{ matrix.arch }}"
           # Build the binary
           go build -ldflags="-s -w" -o $OUTPUT_PATH${{ matrix.os == 'windows' && '.exe' || '' }}
 
